@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/0.2086157513/PATH/delimiter=;
+environment/project/0.2086157513/PATH/operation=replace
+environment/project/0.2086157513/PATH/value=D\:/EclipsePortable/App/Eclipse/jre/bin/client;D\:/EclipsePortable/App/Eclipse/jre/bin;D\:/EclipsePortable/App/Eclipse/jre/lib/i386;D\:\\CommonFiles\\MinGW\\bin;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Windows\\System32\\OpenSSH\\;C\:\\Program Files\\Git\\cmd;C\:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C\:\\Program Files (x86)\\Nordic Semiconductor\\nrf5x\\bin\\;C\:\\Program Files (x86)\\Minimal ADB and Fastboot;C\:\\Users\\10112043\\AppData\\Local\\Programs\\Python\\Python37-32\\Scripts\\;C\:\\Users\\10112043\\AppData\\Local\\Programs\\Python\\Python37-32\\;C\:\\Users\\10112043\\AppData\\Local\\Microsoft\\WindowsApps;;D\:\\EclipsePortable\\Data\\settings;D\:\\EclipsePortable\\windows-build-tools\\bin;C\:\\MinGW\\bin
+environment/project/0.2086157513/append=true
+environment/project/0.2086157513/appendContributed=true
