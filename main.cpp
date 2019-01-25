@@ -4,6 +4,8 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_image.h>
+#include <allegro5/allegro_native_dialog.h>
 
 ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *queue = NULL;
@@ -11,6 +13,7 @@ ALLEGRO_FONT *font = NULL;
 ALLEGRO_USTR *ustr;
 ALLEGRO_EVENT my_event;
 ALLEGRO_COLOR color;
+ALLEGRO_BITMAP *bitmap;
 
 float x = 10;
 float y = 100;
@@ -19,6 +22,8 @@ void destroy_all(void) {
 		al_ustr_free(ustr);
 	if (display)
 		al_destroy_display(display);
+	if (bitmap)
+	 al_destroy_bitmap(bitmap);
 }
 
 void draw(void) {
@@ -43,6 +48,7 @@ void draw(void) {
 
 	al_draw_text(font, al_map_rgb(255, 255, 255), x, y, 0, "你好好");
 	//al_draw_ustr(font, al_map_rgb(255, 0, 0), 100, 100, 0, ustr);
+	al_draw_bitmap(bitmap,0,0,0);
 }
 int main(int argc, char **argv) {
 	if (!al_init()) {
@@ -60,6 +66,13 @@ int main(int argc, char **argv) {
 		fprintf(stderr, "failed to create display!\n");
 		return -1;
 	}
+	if(!al_init_image_addon()) {
+			al_show_native_message_box(display, "Error", "Error", "Failed to initialize al_init_image_addon!",
+		                                 NULL, ALLEGRO_MESSAGEBOX_ERROR);
+		    return 0;
+	}
+	//al_show_native_message_box(display, "Error1", "Error2", "Failed to initialize allegro!",
+	//                                 NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	al_set_window_title(display, "SET_TITLE");
 	queue = al_create_event_queue();
 	al_register_event_source(queue, al_get_keyboard_event_source());
@@ -74,7 +87,10 @@ int main(int argc, char **argv) {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 
 	ustr = al_ustr_new("你好");
-
+	bitmap = al_load_bitmap("WQ60iIMl.jpg");
+	//bitmap=al_create_bitmap(640,480);
+	//al_set_target_bitmap(bitmap);
+	//al_set_target_bitmap(al_get_backbuffer(display));
 	double t_now = 0.0;
 	double t_pre = 0.0;
 	while (1) {
@@ -92,8 +108,11 @@ int main(int argc, char **argv) {
 				x = x + 10;
 			}else if (my_event.keyboard.keycode == 0x54){
 				y = y - 10;
+
 			}else if (my_event.keyboard.keycode == 0x55){
 				y = y + 10;
+				printf("dddd\n");
+				al_save_bitmap("foto.jpg",bitmap);
 			}
 
 		} else {
